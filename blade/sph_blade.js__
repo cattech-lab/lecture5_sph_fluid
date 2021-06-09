@@ -336,11 +336,9 @@ function particleForce() {
 function motionUpdate() {
   // rotation blade  
   for (let i = 0, n = pBlade.length; i < n; i++) {
-    let rv = pBlade[i].position.sub(centerBlade);
+    const rv = pBlade[i].position.sub(centerBlade);
     pBlade[i].position.x = rv.x * Math.cos(angleBlade) - rv.y * Math.sin(angleBlade) + centerBlade.x;
     pBlade[i].position.y = rv.x * Math.sin(angleBlade) + rv.y * Math.cos(angleBlade) + centerBlade.y;
-
-    rv = pBlade[i].position.sub(centerBlade);
     pBlade[i].velocity.x = -omegaBlade * rv.y;
     pBlade[i].velocity.y = omegaBlade * rv.x;
   }
